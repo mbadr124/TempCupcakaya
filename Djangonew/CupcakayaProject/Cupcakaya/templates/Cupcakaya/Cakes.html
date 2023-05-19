@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&family=Satisfy&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{%static 'Cupcakaya/footerstyle.css'%}">
+    <link rel="stylesheet" href="{%static 'Cupcakaya/Menustyle.css'%}">
+    <link rel="stylesheet" href="{%static 'Cupcakaya/headerstyle.css'%}">
+    <title>Cakes</title>
+</head>
+<body class="cakes">
+    
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Cupcakaya</h1>
+            <ul class="nav-links">
+                <li class="active"><a href="{% url 'Cupcakaya-Home' %}" class="text">HOME</a></li>
+            <li><a href="{% url 'Menu' %}"  class="text">ORDER</a></li>
+            <li><a href="{% url 'about' %}" class="text">ABOUT US</a></li>
+            <li><a href="{% url 'faq' %}" class="text">FAQ's</a></li>
+            <li><a href="{% url 'cart' %}"  class="ctn">CART</a></li>
+            </ul>
+            <img src="static/Cupcakaya/icon1.png" alt="" class="menu-btn">
+        </nav>
+    </header>
+    
+
+    <form action="" method="POST"> {% csrf_token %}
+<div class="pagecakes">
+ <div class="choiceBar">
+    <div><a href="#" onclick="showHideflav()">Flavors</a></div>
+    <div><a href="#" onclick="showHidetop()">Option</a></div>
+    <div><a href="#" onclick="showHidecover()">Covering</a></div>
+    
+ </div>
+
+<div class="choices">
+<div class="flavour hide">
+<div class="title"><h1>Select Flavor:</h1></div>
+
+<div class="optionList">
+   
+    {% for flavour in cake_flavours %}
+    <label>
+        <input type="radio" name="flavors" value="{{flavour.flav_id}}"/>
+        <div class="icon-box">
+            {% if flavour.image %}
+            <img src="{{flavour.image}}">
+            {% endif %}
+        <span>{{flavour}}</span>
+        </div>
+    </label>
+    {% endfor %}
+</div>
+</div>
+</div>
+
+
+
+<div class="Topping hide">
+ <div class="title"><h1>Select Option:</h1></div>
+
+   <div class="optionList">
+       
+    {% for option in options %}
+       <label>
+           <input type="radio" name="optionbtn" value="{{option.opt_id}}" />
+           <div class="icon-box">
+            {% if option.image %}
+            <img src="{{option.image}}">
+            {% endif %}
+           <span>{{option}}</span>
+           </div>
+           </label>
+           {% endfor %}     
+    
+   </div>
+</div>
+
+
+
+<div class="Covering hide">
+ <div class="title"><h1>Select covering:</h1></div>
+   <div class="optionList">
+       
+    {% for coverage in coveragee%}
+       <label>
+           <input type="radio" name="coveragebtn" value="{{coverage.cove_id}}"/>
+           <div class="icon-box">
+            {% if coverage.image %}
+            <img src="{{coverage.image}}">
+            {% endif %}
+           <span>{{coverage}}</span>
+           </div>
+        </label>
+        {% endfor %}
+      
+   </div>
+</div>
+
+<div>
+    <a href="#"><button type="submit"class="add-to-cart-btns" id="add-to-cart-btns" name="AddToCart">Add To Cart</button></a>
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+</form>
+<div class="spacebetweenfootandboxes"></div>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>company</h4>
+                <ul>
+                    <li><a href="{% url 'about' %}">about us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>get help</h4>
+                <ul>
+                    <li><a href="{% url 'faq' %}">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>our options</h4>
+                <ul>
+                    <li><a href="{% url 'Cakes' %}">cakes</a></li>
+                    <li><a href="{% url 'Cupcakes' %}">cupcakes</a></li>
+                    <li><a href="{% url 'Cakepops' %}">cakepops</a></li>
+                    <li><a href="{% url 'Cookies' %}">cookies</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Cupcakaya"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://www.instagram.com/cupcakaya/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="{%static 'Cupcakaya/java.js'%}"></script>
+
+</body>
+</html>

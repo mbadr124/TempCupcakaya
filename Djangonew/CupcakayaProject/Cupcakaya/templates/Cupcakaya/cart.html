@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+<link rel="stylesheet" href="{%static 'Cupcakaya/Homestyle.css'%}">
+<link rel="stylesheet" href="{%static 'Cupcakaya/headerstyle.css'%}">
+    <title>CART</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Cupcakaya</h1>
+            <ul class="nav-links">
+                <li class="active"><a href="{% url 'Cupcakaya-Home' %}" class="text">HOME</a></li>
+                <li><a href="{% url 'Menu' %}"  class="text">ORDER</a></li>
+                <li><a href="{% url 'about' %}" class="text">ABOUT US</a></li>
+                <li><a href="{% url 'faq' %}" class="text">FAQ's</a></li>
+                <li><a href="{% url 'cart' %}"  class="ctn">CART</a></li>
+            </ul>
+            <img src="static/Cupcakaya/icon1.png" alt="" class="menu-btn">
+           
+        </nav>
+    </header>
+    
+    <form action="" method="POST"> {% csrf_token %}
+    <div class="badr"><h1>Shopping Cart</h1></div>
+
+    {% for Item in in_items %}
+    
+    <div class="cart-page">
+        
+        <div class="project">
+            
+            <div class="shop">
+
+                <div class="box" >
+                    <img src="{{Item.image}}" alt="cake" class="cartimagee">
+                    <input type="checkbox" name="btnslug" value="{{Item.slug}}" class="hiddencart"/>
+                    <div class="content">
+                        <h3> {{Item.get_category_display}} </h3>
+                        {%if Item.category == 'Ck'%}
+                        <h4>Flavour: {{Item.flavour}} <br> Option: {{Item.option}} <br> Coverage: {{Item.coverage}} </h4>
+                        {% elif  Item.category == 'Cup'%}
+                        <h4>Flavour: {{Item.flavour}} <br> Topping: {{Item.topping}} <br> Amount: {{Item.amount}} </h4>
+
+                        {% elif  Item.category == 'Co' %}
+                        <h4>Flavour: {{Item.flavour}} <br> Shape: {{Item.shape}} <br> Amount: {{Item.amount}} </h4>
+
+                        {% elif  Item.category == 'Cp'%}
+                        <h4>Flavour: {{Item.flavour}} <br> Amount: {{Item.amount}} <br> Coverage: {{Item.coverage}} </h4>
+
+                        {% endif%}
+                        <h4>Price: {{Item.price}} egp</h4>
+                       
+                        <div class="btn-area">
+                            <i class="fa fa-trash"></i>
+                            <button class="btncart" name="btncart" type="submit"><span class="btn2">Remove</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</form>
+
+
+    <!-- <div class="cart-page">
+        <div class="project">
+            <div class="shop">
+                <div class="box">
+                    <img src="cookies.jpeg" alt="cake">
+                    <div class="content">
+                        <h3>Cookies</h3>
+                        <h4>Price: 300 egp</h4>
+                        <div class="unit">Quantity: <input value="1"></div>
+                        <div class="btn-area">
+                            <i class="fa fa-trash"></i>
+                            <span class="btn2">Remove</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-page">
+        <div class="project">
+            <div class="shop">
+                <div class="box">
+                    <img src="cupcakes.jpeg" alt="">
+                    <div class="content">
+                        <h3>Cupcakes</h3>
+                        <h4>Price: 450 egp</h4>
+                        <div class="unit">Quantity: <input value="1"></div>
+                        <div class="btn-area">
+                            <i class="fa fa-trash"></i>
+                            <span class="btn2">Remove</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    
+    <div class="cart-total">
+        <!-- <p><span>Subtotal</span> <span>1150 egp</span></p>
+        <hr>
+        <p><span>Delivery fees</span> <span>40 egp</span></p>
+        <hr>
+        <p><span>Total</span> <span>1190 egp</span></p> -->
+
+            <a href="{% url 'form' %}"><i class="fa fa-shopping-cart"></i>Checkout</a>
+
+    </div>
+    
+
+    
+   
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="{% url 'about' %}">about us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="{% url 'faq' %}">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>our options</h4>
+                    <ul>
+                        <li><a href="{% url 'Cakes' %}">cakes</a></li>
+                        <li><a href="{% url 'Cupcakes' %}">cupcakes</a></li>
+                        <li><a href="{% url 'Cakepops' %}">cakepops</a></li>
+                        <li><a href="{% url 'Cookies' %}">cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Cupcakaya"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://www.instagram.com/cupcakaya/"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="{%static 'Cupcakaya/java.js'%}"></script>
+
+</body>
+</html>

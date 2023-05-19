@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="{%static 'Cupcakaya/Homestyle.css'%}">
+    <link rel="stylesheet" href="{%static 'Cupcakaya/headerstyle.css'%}">
+    <title>FAQ</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Cupcakaya</h1>
+            <ul class="nav-links">
+                <li class="active"><a href="{% url 'Cupcakaya-Home' %}" class="text">HOME</a></li>
+            <li><a href="{% url 'Menu' %}"  class="text">ORDER</a></li>
+            <li><a href="{% url 'about' %}" class="text">ABOUT US</a></li>
+            <li><a href="{% url 'faq' %}" class="text">FAQ's</a></li>
+            <li><a href="{% url 'cart' %}"  class="ctn">CART</a></li>
+            </ul>
+            <img src="static/Cupcakaya/icon1.png" alt="" class="menu-btn">
+        </nav>
+    </header>
+
+<section id="FAQ">
+   
+    <h2 class="titles">FAQs</h2>
+    <div class="faq">
+        <div class="question">
+                 <h3>What does Cupcakaya offer ?</h3>
+                 <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+        </div>
+        <div class="answer">
+            <p>
+                Cupcakaya is a small local private business that specializes in custom 
+                homemade sweets; specifically cakes, cupcakes, cookies, and cake pops. 
+                You can choose from a variety of deisgns or even send in your own design.
+             </p>
+        </div>
+    </div>
+
+
+
+    <div class="faq">
+        <div class="question">
+                 <h3>Do you offer shipping ?</h3>
+                 <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+        </div>
+        <div class="answer">
+            <p>
+                Yes, shipping is available everywhere in Egypt. The exact location and
+                 date are specified (in case of an occasion). We always try to ensure 
+                 that the customer recieves the product the way that satisfies both parties.
+             </p>
+        </div>
+    </div>
+
+    
+    <div class="faq">
+        <div class="question">
+                 <h3>Where did the name come from ?</h3>
+                 <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+        </div>
+        <div class="answer">
+            <p>
+                The name "Cupcakaya" comes from a mix between the words cupcake 
+                and Aya, the name of the founder. In fact, the one who came up 
+                with the name was her younger sister, who was only 11 at the time.
+             </p>
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+                 <h3>What are the ingredients ?</h3>
+                 <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+        </div>
+        <div class="answer">
+            <p>
+                All our products are homemade. We always try to use the best and 
+                freshest ingerdients weather talking about the batter's ingerdients 
+                or the toppings; and yes, IT TASTES AS GOOD AS IT LOOKS!
+             </p>
+        </div>
+    </div>
+</section>
+    
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>company</h4>
+                <ul>
+                    <li><a href="{% url 'about' %}">about us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>get help</h4>
+                <ul>
+                    <li><a href="{% url 'faq' %}">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>our options</h4>
+                <ul>
+                    <li><a href="{% url 'Cakes' %}">cakes</a></li>
+                    <li><a href="{% url 'Cupcakes' %}">cupcakes</a></li>
+                    <li><a href="{% url 'Cakepops' %}">cakepops</a></li>
+                    <li><a href="{% url 'Cookies' %}">cookies</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Cupcakaya"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://www.instagram.com/cupcakaya/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="{%static 'Cupcakaya/java.js'%}"></script>
+</body>
+</html>

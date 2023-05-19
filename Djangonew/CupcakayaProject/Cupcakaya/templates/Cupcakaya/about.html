@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="{%static 'Cupcakaya/Homestyle.css'%}">
+    <link rel="stylesheet" href="{%static 'Cupcakaya/headerstyle.css'%}">
+    <title>ABOUT US</title>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1 class="logo">Cupcakaya</h1>
+        <ul class="nav-links">
+            <li class="active"><a href="{% url 'Cupcakaya-Home' %}" class="text">HOME</a></li>
+            <li><a href="{% url 'Menu' %}"  class="text">ORDER</a></li>
+            <li><a href="{% url 'about' %}" class="text">ABOUT US</a></li>
+            <li><a href="{% url 'faq' %}" class="text">FAQ's</a></li>
+            <li><a href="{% url 'cart' %}"  class="ctn">CART</a></li>
+        </ul>
+        <img src="static/Cupcakaya/icon1.png" alt="" class="menu-btn">
+    </nav>
+<header>
+    <div class="header-content">
+    
+    </div>
+</header>
+
+<section class="ourstorysec">
+    <div class="title">
+        <h1>Our story!</h1>
+        <div class="line"></div>
+        <div class="row-aboutus">
+            <div class="col">
+                <img src="about us pic.jpeg" class="aboutusimg" alt="Cake">
+            </div>
+            <div class="col">
+                
+                <p class="aboutstory">We started in 2015 with simple homemade cupcakes with a booth with one of the student 
+                    activities and started growing and developing our products and here we are going through every
+                     milestone with the support of our family and friends, 
+                    it’s not only about the products but more about the smiles and joy that comes after.</p>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>company</h4>
+                <ul>
+                    <li><a href="{% url 'about' %}">about us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>get help</h4>
+                <ul>
+                    <li><a href="{% url 'faq' %}">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>our options</h4>
+                <ul>
+                    <li><a href="{% url 'Cakes' %}">cakes</a></li>
+                    <li><a href="{% url 'Cupcakes' %}">cupcakes</a></li>
+                    <li><a href="{% url 'Cakepops' %}">cakepops</a></li>
+                    <li><a href="{% url 'Cookies' %}">cookies</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Cupcakaya"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://www.instagram.com/cupcakaya/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="{%static 'Cupcakaya/java.js'%}"></script>
+</body>
+</html>

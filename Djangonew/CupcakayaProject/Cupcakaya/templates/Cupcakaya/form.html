@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{%static 'Cupcakaya/Homestyle.css'%}">
+    <link rel="stylesheet" href="{%static 'Cupcakaya/headerstyle.css'%}">
+    <link rel="stylesheet" href="{%static 'Cupcakaya/formstyle.css'%}">
+    <title>Form</title>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1 class="logo">Cupcakaya</h1>
+        <ul class="nav-links">
+            <li class="active"><a href="{% url 'Cupcakaya-Home' %}" class="text">HOME</a></li>
+            <li><a href="{% url 'Menu' %}"  class="text">ORDER</a></li>
+            <li><a href="{% url 'about' %}" class="text">ABOUT US</a></li>
+            <li><a href="{% url 'faq' %}" class="text">FAQ's</a></li>
+            <li><a href="{% url 'cart' %}"  class="ctn">CART</a></li>
+        </ul>
+        <img src="static/Cupcakaya/icon1.png" alt="" class="menu-btn">
+    </nav>
+<header>
+    <div class="header-content">
+    
+    </div>
+</header>
+
+    <div class="container">
+        <form action="" method="POST">{% csrf_token %}
+      
+          <label for="username">Userame</label>
+          <input type="text" id="fname" name="1username" placeholder="Your Username..">
+
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          
+          <label for="numb">Number</label>
+          <input type="text" id="numb" name="number" placeholder="Your number..">
+            
+          
+          <label for="country">Region</label>
+          <select id="country" name="country">
+            <option value="Nasr City">Nasr City</option>
+            <option value="Tagamoaa">Tagamoaa</option>
+            <option value="Masr el gedida">Masr el gedida</option>
+          </select>
+          
+          <label for="addr">Address</label>
+          <input type="text" id="addr" name="address" placeholder="Your address..">
+
+          <label for="subject">Comment</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      
+          <input type="submit" value="Submit">
+          <a href="{{object.add_to_order_url}}">ADD ORDER</a>
+          
+        </form>
+      </div>
+
+
+
+      <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="{% url 'about' %}">about us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="{% url 'faq' %}">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>our options</h4>
+                    <ul>
+                        <li><a href="{% url 'Cakes' %}">cakes</a></li>
+                        <li><a href="{% url 'Cupcakes' %}">cupcakes</a></li>
+                        <li><a href="{% url 'Cakepops' %}">cakepops</a></li>
+                        <li><a href="{% url 'Cookies' %}">cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Cupcakaya"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://www.instagram.com/cupcakaya/"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>    
+    <script src="{%static 'Cupcakaya/java.js'%}"></script></body>
+</html>
